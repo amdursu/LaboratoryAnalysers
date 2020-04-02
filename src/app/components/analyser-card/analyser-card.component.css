@@ -1,0 +1,35 @@
+.analyserImage {
+    width: 100px;
+    height: 100px;
+    float: right;
+    margin-right: 5px;
+}
+
+.analyserCard {
+    width: 320px;
+    height: 200px;
+    text-align: center !important;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.analyserName{
+    float: left;
+    margin-top: 30px !important;
+    margin-left: 10px;
+}
+
+.btn-circle{
+    width: 40px; 
+    height: 40px; 
+    padding: 7px; 
+    border-radius: 25px; 
+    font-size: 19px; 
+    text-align: center; 
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    /* box-shadow: 0 1px 1px -1px rgb(0, 115, 168), 
+                0 1px 1px 0 rgb(0, 115, 168), 
+                0 1px 5px 0 rgb(0, 115, 168); */
+}

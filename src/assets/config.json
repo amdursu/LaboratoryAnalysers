@@ -1,0 +1,58 @@
+{
+    "analysers": [
+        {
+            "name": "Architect",
+            "imgURL": "https://www.corelaboratory.abbott/sal/image/ARCHITECT_c8000_Instrument_Image_straight_500x500.png"
+        },
+        {
+            "name": "Biorad",
+            "imgURL": "https://www.bio-rad.com/webroot/web/images/lsr/products/bioplex_suspension_array/category_feature/global/bio-plex-200-prod-nav.png"
+        },
+        {
+            "name": "Generic",
+            "imgURL": "https://5.imimg.com/data5/AV/TE/MY-5636256/bc-5130-auto-hematology-analyser-5-part-250x250.png"
+        },
+        {
+            "name": "Nihon",
+            "imgURL": "https://5.imimg.com/data5/IR/PC/VZ/SELLER-12016930/celltac-es-automated-hematology-analyzer-mek-7300-500x500.png"
+        },
+        {
+            "name": "Orthovision Serial",
+            "imgURL": "https://www.tecanannualreport.com/fileadmin/_processed_/csm_ovbeautyshot4633-front_d6c62cb06d.png"
+        },
+        {
+            "name": "Orthovision TCP",
+            "imgURL": "https://www.tecanannualreport.com/fileadmin/_processed_/csm_ovbeautyshot4633-front_d6c62cb06d.png"
+        },
+        {
+            "name": "Qwalys File",
+            "imgURL": "https://omascientific.com/images/uploads/PinAAcle_900_Series.png"
+        },
+        {
+            "name": "Qwalys Serial",
+            "imgURL": "https://omascientific.com/images/uploads/PinAAcle_900_Series.png"
+        },
+        {
+            "name": "Vitros ASTM",
+            "imgURL": "https://www.orthoclinicaldiagnostics.com/assets/images/products/CL/3600@2x.png"
+        },
+        {
+            "name": "Vitros Kermit",
+            "imgURL": "https://www.orthoclinicaldiagnostics.com/assets/images/products/CL/3600@2x.png"
+        }
+    ],
+    "listenerClasses": [
+        { "name": "FileService" },
+        { "name": "GenericService" },
+        { "name": "KermitService" },
+        { "name": "SerialService" },
+        { "name": "SocketService" }
+    ],
+    "parserClasses": [
+        { "name": "FhirToAstm" },
+        { "name": "JsonTransformer" },
+        { "name": "AstmJSONParser" },
+        { "name": "KermitParser" },
+        { "name": "NihonParser" }
+    ]
+}

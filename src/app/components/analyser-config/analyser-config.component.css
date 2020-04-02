@@ -1,0 +1,55 @@
+::ng-deep .input, .ui-inputgroup-addon{
+    height: 35px !important;
+}
+
+.input {
+    width: 200px !important;
+}
+
+::ng-deep span.ui-inputgroup-addon{
+    padding-top: 4px !important;
+    width: 145px !important;
+}
+
+::ng-deep .ui-dropdown{
+    height: 35px !important;
+    width: 200px !important;
+    border-left: none !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+::ng-deep .ui-inputgroup {
+    margin-bottom: 20px;
+}
+
+::ng-deep .ui-dropdown:enabled:focus, .input:enabled:focus, .ui-dropdown:focus, .input:focus{
+    /* box-shadow: none !important; */
+    -webkit-box-shadow:none !important;
+    -moz-box-shadow:none !important;
+    outline: 0 !important;
+    outline-offset: 0 !important;
+    box-shadow: 0 0 0 0 !important; /*I remove the border shadow*/
+}
+
+::ng-deep .ui-dropdown:not(.ui-state-disabled).ui-state-focus{
+    box-shadow: 0 0 0 0 !important; /*I remove the border shadow*/
+}
+
+.protocolFile{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.protocolFile + label {
+    display: inline-block;
+    height: 35px !important;
+    border-left: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    width: 200px !important;
+}

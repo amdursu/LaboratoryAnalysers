@@ -1,0 +1,53 @@
+<div class="row" style="margin-top: 50px;">
+    <div class="col-4">
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Name</span>
+            <input type="text" name="name" id="name" [(ngModel)]="name" class="input" pInputText>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Listener Class</span>
+            <p-dropdown name="listenerClass" id="listenerClass" [(ngModel)]="listenerClass" [options]="listenerClasses"></p-dropdown>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Parser Class</span>
+            <p-dropdown name="parserClass" id="parserClass" [(ngModel)]="parserClass" [options]="parserClasses"></p-dropdown>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Port</span>
+            <input type="text" name="port" id="port" [(ngModel)]="port" class="input" pInputText>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Baud Rate</span>
+            <input type="text" name="baudRate" id="baudRate" [(ngModel)]="baudRate" class="input" pInputText>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Message Start</span>
+            <input type="text" name="messageStart" id="messageStart" [(ngModel)]="messageStart" class="input" pInputText>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Message End</span>
+            <input type="text" name="messageEnd" id="messageEnd" [(ngModel)]="messageEnd" class="input" pInputText>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Start Frame</span>
+            <input type="text" name="startFrame" id="startFrame" [(ngModel)]="startFrame" class="input" pInputText>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">End Frame</span>
+            <input type="text" name="endFrame" id="endFrame" [(ngModel)]="endFrame" class="input" pInputText>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Message ACK</span>
+            <input type="text" name="messageACK" id="messageACK" [(ngModel)]="messageACK" class="input" pInputText>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Message Not ACK</span>
+            <input type="text" name="messageNotACK" id="messageNotACK" [(ngModel)]="messageNotACK" class="input" pInputText>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Protocol File</span>
+            <input type="file" name="protocolFile" id="protocolFile" [(ngModel)]="protocolFile" class="input protocolFile" pInputText>
+            <label for="protocolFile" class="btn btn-raised btn-info">Choose File</label>
+        </div>
+    </div>
+</div>

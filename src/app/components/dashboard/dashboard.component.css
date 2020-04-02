@@ -1,0 +1,15 @@
+.dropzone{
+    border: 1px solid  rgb(179, 170, 170); 
+    height: 200px; 
+    margin-top: 15px;
+    margin-left: 20px; 
+    width: 320px; 
+    border-style: dashed; 
+    border-radius: 5px;
+    color: rgb(179, 170, 170);
+    text-align: center;
+}
+
+.analysers{
+    margin-bottom: 20px;
+}
