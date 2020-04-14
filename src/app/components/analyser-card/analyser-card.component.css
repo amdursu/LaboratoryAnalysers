@@ -1,16 +1,29 @@
 .analyserImage {
-    width: 100px;
-    height: 100px;
+    max-width: 100px;
+    min-width: 80px;
+    height: 60%;
+    min-height: 80px;
     float: right;
     margin-right: 5px;
 }
 
 .analyserCard {
-    width: 320px;
-    height: 200px;
+    max-width: 350px;
+    height: 200px; 
+    min-width: 280px;
     text-align: center !important;
     margin-top: 15px;
     margin-left: 20px;
+    position: relative;
+}
+
+.actions {
+    position: absolute; 
+    height: 90px; 
+    bottom: 0; 
+    left: 0;
+    min-width: 280px;
+    width: 100%;
 }
 
 .analyserName{

@@ -3,7 +3,8 @@
     height: 200px; 
     margin-top: 15px;
     margin-left: 20px; 
-    width: 320px; 
+    max-width: 340px; 
+    min-width: 280px;
     border-style: dashed; 
     border-radius: 5px;
     color: rgb(179, 170, 170);
@@ -12,4 +13,14 @@
 
 .analysers{
     margin-bottom: 20px;
+}
+
+::ng-deep .ui-carousel-item{
+    text-align: center !important;
+}
+
+ .carouselItem{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }

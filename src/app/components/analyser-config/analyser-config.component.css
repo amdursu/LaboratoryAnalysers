@@ -8,7 +8,7 @@
 
 ::ng-deep span.ui-inputgroup-addon{
     padding-top: 4px !important;
-    width: 145px !important;
+    width: 150px !important;
 }
 
 ::ng-deep .ui-dropdown{
@@ -29,11 +29,15 @@
     -moz-box-shadow:none !important;
     outline: 0 !important;
     outline-offset: 0 !important;
-    box-shadow: 0 0 0 0 !important; /*I remove the border shadow*/
+    box-shadow: 0 0 0 0 !important;
 }
 
 ::ng-deep .ui-dropdown:not(.ui-state-disabled).ui-state-focus{
-    box-shadow: 0 0 0 0 !important; /*I remove the border shadow*/
+    box-shadow: 0 0 0 0 !important;
+}
+
+::ng-deep .ui-accordion .ui-accordion-header a:focus, .ui-accordion .ui-accordion-header a:enabled:focus{
+    box-shadow: 0 0 0 0 !important;
 }
 
 .protocolFile{
@@ -52,4 +56,15 @@
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     width: 200px !important;
+}
+
+.configInputs{
+    max-height: 85vh;
+    overflow-y: scroll !important;
+}
+
+.smallFont{
+    font-size: 13px;
+    font-weight: 440;
+    padding-top: 7px !important;
 }

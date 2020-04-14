@@ -1,0 +1,26 @@
+<p-accordion>
+    <p-accordionTab header="Checksum">
+        <div class="inputs">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">Size</span>
+                <input type="text" name="size" id="size" [(ngModel)]="size" class="input" pInputText (keyup)="sendChecksum()">
+            </div>
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">CheckerFN</span>
+                <p-dropdown name="checkerFn" id="checkerFn" [(ngModel)]="checkerFn" [options]="checkerFns" (onChange)="sendChecksum()"></p-dropdown>
+            </div>
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">ComputerFN</span>
+                <p-dropdown name="computerFn" id="computerFn" [(ngModel)]="computerFn" [options]="computerFns" (onChange)="sendChecksum()"></p-dropdown>
+            </div>
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">From</span>
+                <input type="text" name="from" id="from" [(ngModel)]="from" class="input" pInputText (keyup)="sendChecksum()">
+            </div>
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">To</span>
+                <input type="text" name="to" id="to" [(ngModel)]="to" class="input" pInputText (keyup)="sendChecksum()">
+            </div>
+        </div>
+    </p-accordionTab>
+</p-accordion>

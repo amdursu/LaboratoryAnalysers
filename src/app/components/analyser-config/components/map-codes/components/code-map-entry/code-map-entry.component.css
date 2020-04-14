@@ -1,0 +1,40 @@
+.input {
+    width: 150px !important;
+}
+
+span.ui-inputgroup-addon{
+    padding-top: 4px !important;
+    width: 100px !important;
+}
+
+.input, .ui-inputgroup-addon{
+    height: 35px !important;
+}
+
+.addParam {
+    padding: 7px;
+    background-color: rgb(0, 122, 236);
+    border-radius: 10%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 35px !important;
+    color: white;
+}
+
+.controls{
+    width: 100%;
+}
+
+.buttons button{
+    margin: 0 10px;
+    float: right;
+}
+
+.content{
+    height: 400px;
+    overflow-y: auto;
+}
+
+::ng-deep .ui-autocomplete.ui-autocomplete-multiple .ui-autocomplete-multiple-container{
+    box-shadow: 0 0 0 0 !important;
+}

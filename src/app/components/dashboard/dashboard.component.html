@@ -1,6 +1,6 @@
-<p-carousel [value]="analysers" [numVisible]="3" [numScroll]="1" appendTo="body">
+<p-carousel [value]="analysers" [numVisible]="3" [numScroll]="1" [style]="{'max-width': '108%'}">
     <ng-template let-analyser pTemplate="item">
-        <div pDraggable="analyser" (onDragStart)="dragStart($event, analyser)" (onDragEnd)="dragEnd($event)">
+        <div pDraggable="analyser" class="carouselItem" (onDragStart)="dragStart($event, analyser)" (onDragEnd)="dragEnd($event)">
             <carousel-card [analyserName]="analyser.name" [analyserImageURL]="analyser.imgURL"></carousel-card>
         </div>
     </ng-template>
@@ -23,7 +23,7 @@
             <div class="col-3" *ngIf="(i+4) >= configuredAnalysers.length || (i+1) >= configuredAnalysers.length || (i+2) >= configuredAnalysers.length || (i+3) >= configuredAnalysers.length">
                 <div class="dropzone" pDroppable="analyser" (onDrop)="addAnalyser($event)">
                     <i class="pi pi-plus-circle" style="font-size: 5em; margin-top: 25px;"></i><br>
-                    Drag and drop an analyser from above to start configuring
+                    <p style="margin: 0 5px;">Drag and drop an analyser from above to start configuring</p>
                 </div>
             </div>
         </div>

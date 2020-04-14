@@ -1,0 +1,47 @@
+.codes thead, tbody tr{
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.codes tbody{
+    display: block;
+    height: 265px;
+    overflow: auto;
+}
+
+.config{
+    padding: 8px;
+    border-radius: 50%;
+    background-color: grey;
+    font-size: 1.3em;
+    color: white;
+}
+
+.config:hover{
+    background-color: rgb(102, 102, 102);
+    cursor: pointer;
+}
+
+.delete{
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgb(248, 76, 76);
+    font-size: 1.3em;
+    color: white;
+}
+
+.delete:hover{
+    background-color: rgb(177, 55, 55);
+    cursor: pointer;
+}
+
+.codeData{
+    padding-top: 22px;
+}
+
+.headerCodes button{
+    float: right;
+    margin-right: 10px;
+    margin-top: -5px !important;
+}

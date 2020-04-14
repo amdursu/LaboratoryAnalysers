@@ -11,11 +11,20 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { CarouselCardComponent } from './components/carousel-card/carousel-card.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { DragDropModule } from 'primeng/dragdrop';
 import { CarouselModule } from 'primeng/carousel';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { AccordionModule } from 'primeng/accordion';
+import { ButtonModule } from 'primeng/button';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+ 
 import { AnalyserConfigComponent } from './components/analyser-config/analyser-config.component';
+import { QueryParamsComponent } from './components/analyser-config/components/query-params/query-params.component';
+import { MapCodesComponent } from './components/analyser-config/components/map-codes/map-codes.component';
+import { CodeMapEntryComponent } from './components/analyser-config/components/map-codes/components/code-map-entry/code-map-entry.component';
+import { ChecksumComponent } from './components/analyser-config/components/checksum/checksum.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -29,7 +38,11 @@ const routes: Routes = [
     AnalyserCardComponent,
     HeaderComponent,
     CarouselCardComponent,
-    AnalyserConfigComponent
+    AnalyserConfigComponent,
+    QueryParamsComponent,
+    MapCodesComponent,
+    CodeMapEntryComponent,
+    ChecksumComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +54,14 @@ const routes: Routes = [
     DragDropModule,
     FormsModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    AccordionModule,
+    ButtonModule,
+    MatDialogModule,
+    AutoCompleteModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CodeMapEntryComponent]
 })
 export class AppModule { }

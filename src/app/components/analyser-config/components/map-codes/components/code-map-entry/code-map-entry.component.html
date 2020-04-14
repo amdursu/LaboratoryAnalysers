@@ -1,0 +1,85 @@
+<h3 mat-dialog-title class="text-center">{{ action }} new code map</h3>
+<hr>
+<mat-dialog-content>
+    <div class="content">
+        <div class="row">
+            <div class="col-6">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">LisCode</span>
+                    <input type="text" name="lisCode" id="lisCode" [(ngModel)]="lisCode" class="input" pInputText>
+                </div>
+                
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">Display</span>
+                    <input type="text" name="display" id="display" [(ngModel)]="display" class="input" pInputText>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">Code</span>
+                    <input type="text" name="code" id="code" [(ngModel)]="code" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">System</span>
+                    <input type="text" name="system" id="system" [(ngModel)]="system" class="input" pInputText>
+                </div>
+                
+            </div>
+            
+        </div>
+        <h6>Communication Code</h6>
+        <div class="row">
+            <div class="col-6">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">Code</span>
+                    <input type="text" name="commCode" id="commCode" [(ngModel)]="commCode" class="input" pInputText>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">System</span>
+                    <input type="text" name="commSystem" id="commSystem" [(ngModel)]="commSystem" class="input" pInputText>
+                </div>
+            </div>
+        </div>
+        <h6>AnaApCode</h6>
+        <div class="row">
+            <div class="col-6">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">Code</span>
+                    <input type="text" name="anaApCode" id="anaApCode" [(ngModel)]="anaApCode" class="input" pInputText>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">System</span>
+                    <input type="text" name="anaApSystem" id="anaApSystem" [(ngModel)]="anaApSystem" class="input" pInputText>
+                </div>
+            </div>
+        </div>
+        <h6>Parameters</h6>
+        <div class="row">
+            <div class="col-12">
+                <span class="ui-fluid">
+                    <p-autoComplete appendTo="body" [(ngModel)]="selectedCodes" [suggestions]="filteredCodes" (completeMethod)="filterCodes($event)" styleClass="wid100"
+                                    placeholder="Parameters" [field]="filterField" [multiple]="true">
+                        <ng-template let-code pTemplate="item">
+                            <div class="ui-helper-clearfix">
+                                <div>{{ code.display }} - {{ code.code }} </div>
+                            </div>
+                        </ng-template>
+                    </p-autoComplete>
+                </span>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<hr>
+<mat-dialog-actions>
+    <div class="controls">
+        <div class="buttons">
+            <button class="btn btn-danger" mat-dialog-close>Cancel</button>
+            <button class="btn btn-info" mat-dialog-close (click)="addOrEditCodeMap()">{{ action }}</button>
+        </div>
+    </div>
+</mat-dialog-actions>

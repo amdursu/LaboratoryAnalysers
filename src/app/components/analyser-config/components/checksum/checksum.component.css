@@ -1,0 +1,14 @@
+.input {
+    width: 200px !important;
+}
+
+span.ui-inputgroup-addon{
+    font-size: 16px !important;
+    font-weight: 500 !important;
+}
+
+.inputs{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+}

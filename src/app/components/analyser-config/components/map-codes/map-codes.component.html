@@ -1,0 +1,31 @@
+<p-accordion (onOpen)="onTabOpen()" (onClose)="onTabClose()">
+    <p-accordionTab>
+        <p-header class="headerCodes">
+            <span style="vertical-align: middle;">Map Codes</span>
+            <span><button *ngIf="addEntryButtonVisible" class="btn btn-sm btn-secondary" (click)="$event.stopPropagation(); addMapCode()">Add entry</button></span>
+        </p-header>
+        <div class="codes">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>LisCode</th>
+                        <th>Code</th>
+                        <th>Display</th>
+                        <th>Configure / Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let code of codes">
+                        <td class="codeData">{{ code.lisCode || '-' }}</td>
+                        <td class="codeData">{{ code.code || '-' }}</td>
+                        <td class="codeData">{{ code.display || '-' }}</td>
+                        <td>
+                            <i class="pi pi-cog config" (click)="editMapCode(code)" style="margin-left: 10px;"></i>
+                            <i class="pi pi-trash delete" (click)="deleteMapCode(code)" style="margin-left: 35px;"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </p-accordionTab>
+</p-accordion>
