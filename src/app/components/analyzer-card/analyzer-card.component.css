@@ -1,13 +1,14 @@
-.analyserImage {
+.analyzerImage {
     max-width: 100px;
     min-width: 80px;
     height: 60%;
     min-height: 80px;
     float: right;
-    margin-right: 5px;
+    margin-top: 8px;
+    margin-right: 3px;
 }
 
-.analyserCard {
+.analyzerCard {
     max-width: 350px;
     height: 200px; 
     min-width: 280px;
@@ -26,23 +27,26 @@
     width: 100%;
 }
 
-.analyserName{
-    float: left;
-    margin-top: 30px !important;
+.analyzerName{
+    margin-top: 10px !important;
     margin-left: 10px;
+    float: left;
+}
+
+.analyzerTitle{
+    font-size: 14px;
+    margin-top: 10px !important;
+    margin-left: 10px;
+    float: left;
 }
 
 .btn-circle{
     width: 40px; 
     height: 40px; 
     padding: 7px; 
-    border-radius: 25px; 
+    border-radius: 50%; 
     font-size: 19px; 
     text-align: center; 
-}
-
-.mat-card:not([class*=mat-elevation-z]) {
-    /* box-shadow: 0 1px 1px -1px rgb(0, 115, 168), 
-                0 1px 1px 0 rgb(0, 115, 168), 
-                0 1px 5px 0 rgb(0, 115, 168); */
+    margin: 0 10px;
+    color: white;
 }

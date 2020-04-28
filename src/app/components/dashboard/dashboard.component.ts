@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as config from 'src/assets/config.json';
+import { DataService } from 'src/app/services/data.service';
+import { UUID } from 'angular2-uuid/index';
+
 
 @Component({
   selector: 'dashboard',
@@ -8,29 +11,42 @@ import * as config from 'src/assets/config.json';
 })
 export class DashboardComponent implements OnInit {
 
-  analysers = config.analysers;
-  configuredAnalysers = [];
+  analyzers;
+  configuredAnalyzers = [];
   draggedElement;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    for(let i = 0; i < 5; i++){
-      this.configuredAnalysers.push(this.analysers[i]);
-    }
+    this.dataService.getAnalyzers().subscribe(analyzers => this.analyzers = analyzers);
+    this.dataService.getConfiguredAnalyzers().subscribe((configuredAnalyzers: any[]) => {
+      if(configuredAnalyzers)
+        configuredAnalyzers.forEach(analyzer => {
+          this.configuredAnalyzers.push(analyzer);
+        })
+    })
   }
 
-  dragStart(event, analyser){
-    this.draggedElement = analyser;
+  dragStart(event, analyzer){
+    this.draggedElement = analyzer;
   }
 
   dragEnd(event){
     this.draggedElement = null;
   }
 
-  addAnalyser(event){
-    if(this.draggedElement)
-      this.configuredAnalysers.push(this.draggedElement);
+  addAnalyzer(event){
+    if(this.draggedElement){
+      this.dataService.installAnalyzer({ configName: this.draggedElement.configName }).subscribe((res: any) => {
+        let analyzer = { name: res.name, status: undefined, config: res.config };
+        this.configuredAnalyzers.push(analyzer);
+      })
+      
+    }
   }
 
+  removeAnalyzer(name){
+    this.configuredAnalyzers.splice(this.configuredAnalyzers.findIndex(analyzer => analyzer.name == name), 1);
+  }
+  
 }

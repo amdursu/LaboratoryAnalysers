@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CarouselCardComponent implements OnInit {
 
-  @Input('analyserName') analyserName;
-  @Input('analyserImageURL') analyserImageURL;
+  @Input('analyzerName') analyzerName;
+  @Input('analyzerImageURL') analyzerImageURL;
 
   constructor() { }
 

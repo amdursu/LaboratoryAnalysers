@@ -1,29 +1,39 @@
-<p-carousel [value]="analysers" [numVisible]="3" [numScroll]="1" [style]="{'max-width': '108%'}">
-    <ng-template let-analyser pTemplate="item">
-        <div pDraggable="analyser" class="carouselItem" (onDragStart)="dragStart($event, analyser)" (onDragEnd)="dragEnd($event)">
-            <carousel-card [analyserName]="analyser.name" [analyserImageURL]="analyser.imgURL"></carousel-card>
+<p-carousel [value]="analyzers" [numVisible]="3" [numScroll]="1" [style]="{'max-width': '108%'}">
+    <ng-template let-analyzer pTemplate="item">
+        <div pDraggable="analyzer" class="carouselItem" (onDragStart)="dragStart($event, analyzer)" (onDragEnd)="dragEnd($event)">
+            <carousel-card [analyzerName]="analyzer.name" [analyzerImageURL]="analyzer.imgURL"></carousel-card>
         </div>
     </ng-template>
 </p-carousel>
-<div class="analysers">
-    <ng-container *ngFor="let analyzer of configuredAnalysers; let i = index" [attr.data-index]="i">
-        <div class="row" *ngIf="i % 4 == 0">
-            <div class="col-3" *ngIf="i < configuredAnalysers.length">
-                <analyser-card [analyserName]="configuredAnalysers[i].name" [analyserImageURL]="configuredAnalysers[i].imgURL"></analyser-card>
-            </div>
-            <div class="col-3" *ngIf="(i+1) < configuredAnalysers.length">
-                <analyser-card [analyserName]="configuredAnalysers[i+1].name" [analyserImageURL]="configuredAnalysers[i+1].imgURL"></analyser-card>
-            </div>
-            <div class="col-3" *ngIf="(i+2) < configuredAnalysers.length">
-                <analyser-card [analyserName]="configuredAnalysers[i+2].name" [analyserImageURL]="configuredAnalysers[i+2].imgURL"></analyser-card>
-            </div>
-            <div class="col-3" *ngIf="(i+3) < configuredAnalysers.length">
-                <analyser-card [analyserName]="configuredAnalysers[i+3].name" [analyserImageURL]="configuredAnalysers[i+3].imgURL"></analyser-card>
-            </div>
-            <div class="col-3" *ngIf="(i+4) >= configuredAnalysers.length || (i+1) >= configuredAnalysers.length || (i+2) >= configuredAnalysers.length || (i+3) >= configuredAnalysers.length">
-                <div class="dropzone" pDroppable="analyser" (onDrop)="addAnalyser($event)">
+<div class="analyzers">
+    <ng-container *ngIf="configuredAnalyzers.length == 0">
+        <div class="row">
+            <div class="col-3">
+                <div class="dropzone" pDroppable="analyzer" (onDrop)="addAnalyzer($event)">
                     <i class="pi pi-plus-circle" style="font-size: 5em; margin-top: 25px;"></i><br>
-                    <p style="margin: 0 5px;">Drag and drop an analyser from above to start configuring</p>
+                    <p style="margin: 0 5px;">Drag and drop an analyzer from above to start configuring</p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngFor="let analyzer of configuredAnalyzers; let i = index" [attr.data-index]="i">
+        <div class="row" *ngIf="i % 4 == 0">
+            <div class="col-3" *ngIf="i < configuredAnalyzers.length">
+                <analyzer-card [analyzer]="configuredAnalyzers[i]" (removedAnalyzer)="removeAnalyzer($event)"></analyzer-card>
+            </div>
+            <div class="col-3" *ngIf="(i+1) < configuredAnalyzers.length">
+                <analyzer-card [analyzer]="configuredAnalyzers[i+1]" (removedAnalyzer)="removeAnalyzer($event)"></analyzer-card>
+            </div>
+            <div class="col-3" *ngIf="(i+2) < configuredAnalyzers.length">
+                <analyzer-card [analyzer]="configuredAnalyzers[i+2]" (removedAnalyzer)="removeAnalyzer($event)"></analyzer-card>
+            </div>
+            <div class="col-3" *ngIf="(i+3) < configuredAnalyzers.length">
+                <analyzer-card [analyzer]="configuredAnalyzers[i+3]" (removedAnalyzer)="removeAnalyzer($event)"></analyzer-card>
+            </div>
+            <div class="col-3" *ngIf="(i+4) >= configuredAnalyzers.length || (i+1) >= configuredAnalyzers.length || (i+2) >= configuredAnalyzers.length || (i+3) >= configuredAnalyzers.length">
+                <div class="dropzone" pDroppable="analyzer" (onDrop)="addAnalyzer($event)">
+                    <i class="pi pi-plus-circle" style="font-size: 5em; margin-top: 25px;"></i><br>
+                    <p style="margin: 0 5px;">Drag and drop an analyzer from above to start configuring</p>
                 </div>
             </div>
         </div>

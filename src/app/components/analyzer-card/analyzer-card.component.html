@@ -1,0 +1,25 @@
+<mat-card class="analyzerCard">
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <h5 class="analyzerName">{{ analyzer.name ? analyzer.name : analyzer.config.configName }}</h5>
+            </div>
+            <div class="row">
+                <h6 class="analyzerTitle">{{ analyzer.config.name }}</h6>
+            </div>
+        </div>
+        <div class="col-6">
+            <img mat-card-image class="analyzerImage" [src]="analyzer.config.imgURL" alt="Vitros">
+        </div>
+    </div>
+    <div class="actions">
+        <hr style="clear: both;">
+        <button class="btn btn-circle" [ngClass]="analyzer.status == 'online' ? 'btn-danger' : 'btn-success'" (click)="powerAnalyzer()">
+            <i class="pi pi-power-off"></i>
+        </button>
+        <button class="btn btn-danger btn-circle" (click)="removeAnalyzer()"><i class="pi pi-trash"></i></button>
+        <button class="btn btn-warning btn-circle"><i class="pi pi-info"></i></button>
+        <button class="btn btn-secondary btn-circle"><i class="pi pi-cog"></i></button>
+    </div>
+</mat-card>
+<p-confirmDialog [style]="{width: '40vw'}"></p-confirmDialog>

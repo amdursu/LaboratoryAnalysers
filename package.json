@@ -1,9 +1,9 @@
 {
-  "name": "laboratory-analysers",
+  "name": "laboratory-analyzers",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.config.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "angular2-uuid": "^1.1.1",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "primeicons": "^2.0.0",

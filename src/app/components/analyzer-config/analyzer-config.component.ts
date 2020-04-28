@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import * as config from "src/assets/config.json";
 
 @Component({
-  selector: 'app-analyser-config',
-  templateUrl: './analyser-config.component.html',
-  styleUrls: ['./analyser-config.component.css']
+  selector: 'app-analyzer-config',
+  templateUrl: './analyzer-config.component.html',
+  styleUrls: ['./analyzer-config.component.css']
 })
-export class AnalyserConfigComponent implements OnInit {
+export class AnalyzerConfigComponent implements OnInit {
 
   listenerClasses = [{ label: 'Select listener', value: '' }];
   parserClasses = [{ label: 'Select parser', value: '' }];

@@ -3,10 +3,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AnalyserCardComponent } from './components/analyser-card/analyser-card.component';
+import { AnalyzerCardComponent } from './components/analyzer-card/analyzer-card.component';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { CarouselCardComponent } from './components/carousel-card/carousel-card.component';
@@ -19,26 +20,27 @@ import { DropdownModule } from 'primeng/dropdown';
 import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
  
-import { AnalyserConfigComponent } from './components/analyser-config/analyser-config.component';
-import { QueryParamsComponent } from './components/analyser-config/components/query-params/query-params.component';
-import { MapCodesComponent } from './components/analyser-config/components/map-codes/map-codes.component';
-import { CodeMapEntryComponent } from './components/analyser-config/components/map-codes/components/code-map-entry/code-map-entry.component';
-import { ChecksumComponent } from './components/analyser-config/components/checksum/checksum.component';
+import { AnalyzerConfigComponent } from './components/analyzer-config/analyzer-config.component';
+import { QueryParamsComponent } from './components/analyzer-config/components/query-params/query-params.component';
+import { MapCodesComponent } from './components/analyzer-config/components/map-codes/map-codes.component';
+import { CodeMapEntryComponent } from './components/analyzer-config/components/map-codes/components/code-map-entry/code-map-entry.component';
+import { ChecksumComponent } from './components/analyzer-config/components/checksum/checksum.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'config', component: AnalyserConfigComponent }
+  { path: 'config', component: AnalyzerConfigComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    AnalyserCardComponent,
+    AnalyzerCardComponent,
     HeaderComponent,
     CarouselCardComponent,
-    AnalyserConfigComponent,
+    AnalyzerConfigComponent,
     QueryParamsComponent,
     MapCodesComponent,
     CodeMapEntryComponent,
@@ -58,7 +60,9 @@ const routes: Routes = [
     AccordionModule,
     ButtonModule,
     MatDialogModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    HttpClientModule,
+    ConfirmDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
