@@ -1,0 +1,53 @@
+<p-accordion>
+    <p-accordionTab header="Interpretation Codes">
+       <div class="codes">
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>LisCode</th>
+                    <th>Code</th>
+                    <th>Display</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let code of configInterpretationCodes; index as i">
+                    <ng-container *ngIf="!edit[i]">
+                        <td class="codeData">{{ code.lisCode }}</td>
+                        <td class="codeData">{{ code.code }}</td>
+                        <td class="codeData">{{ code.display }}</td>
+                    </ng-container>
+                    <ng-container *ngIf="edit[i]">
+                        <td>
+                            <input pInputText type="text" [(ngModel)]="editLis[i]" class="newCode">
+                        </td>
+                        <td>
+                            <input pInputText type="text" [(ngModel)]="editCode[i]" class="newCode">
+                        </td>
+                        <td>
+                            <input pInputText type="text" [(ngModel)]="editDisplay[i]" class="newCode">
+                        </td>
+                    </ng-container>
+                    <td>
+                        <i class="pi pi-cog editCode" *ngIf="!edit[i]" (click)="modifyCode(code, i)"></i>
+                        <i class="pi pi-save addCode" *ngIf="edit[i]" (click)="saveCode(code, i)"></i>
+                        <i class="pi pi-trash deleteCode" style="margin-left: 10px;" (click)="deleteCode(code)"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input pInputText type="text" placeholder="LisCode" [(ngModel)]="lisCode" class="newCode">
+                    </td>
+                    <td>
+                        <input pInputText type="text" placeholder="Code" [(ngModel)]="code" class="newCode">
+                    </td>
+                    <td>
+                        <input pInputText type="text" placeholder="Display" [(ngModel)]="display" class="newCode">
+                    </td>
+                    <td><i class="pi pi-plus addCode" (click)="addCode(lisCode, code, display)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+       </div>
+    </p-accordionTab>
+</p-accordion>

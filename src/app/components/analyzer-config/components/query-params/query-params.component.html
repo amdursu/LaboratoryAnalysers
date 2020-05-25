@@ -8,16 +8,36 @@
                     <th>Field</th>
                     <th>Component</th>
                     <th>Frame</th>
-                    <th>Action</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let param of queryParameters">
-                    <td class="paramData">{{ param.name }}</td>
-                    <td class="paramData">{{ param.field }}</td>
-                    <td class="paramData">{{ param.component }}</td>
-                    <td class="paramData">{{ param.frame }}</td>
-                    <td><i class="pi pi-trash deleteParam" (click)="deleteParam(param)"></i></td>
+                <tr *ngFor="let param of configParameters; index as i">
+                    <ng-container *ngIf="!edit[i]">
+                        <td class="paramData">{{ param.name }}</td>
+                        <td class="paramData">{{ param.field }}</td>
+                        <td class="paramData">{{ param.component }}</td>
+                        <td class="paramData">{{ param.frame }}</td>
+                    </ng-container>
+                    <ng-container *ngIf="edit[i]">
+                        <td>
+                            <input pInputText type="text" placeholder="Name" [(ngModel)]="editName[i]" class="newParam">
+                        </td>
+                        <td>
+                            <input pInputText type="text" placeholder="Field" [(ngModel)]="editField[i]" class="newParam">
+                        </td>
+                        <td>
+                            <input pInputText type="text" placeholder="Component" [(ngModel)]="editComponent[i]" class="newParam">
+                        </td>
+                        <td>
+                            <input pInputText type="text" placeholder="Frame" [(ngModel)]="editFrame[i]" class="newParam">
+                        </td>
+                    </ng-container>
+                    <td>
+                        <i class="pi pi-cog editParam" *ngIf="!edit[i]" (click)="modifyParam(param, i)"></i>
+                        <i class="pi pi-save addParam" *ngIf="edit[i]" (click)="saveParam(param, i)"></i>
+                        <i class="pi pi-trash deleteParam" style="margin-left: 10px;" (click)="deleteParam(param)"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td>

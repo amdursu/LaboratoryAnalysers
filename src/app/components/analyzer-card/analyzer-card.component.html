@@ -18,8 +18,8 @@
             <i class="pi pi-power-off"></i>
         </button>
         <button class="btn btn-danger btn-circle" (click)="removeAnalyzer()"><i class="pi pi-trash"></i></button>
-        <button class="btn btn-warning btn-circle"><i class="pi pi-info"></i></button>
-        <button class="btn btn-secondary btn-circle"><i class="pi pi-cog"></i></button>
+        <button class="btn btn-warning btn-circle" (click)="openDownloadDialog()"><i class="pi pi-info"></i></button>
+        <button class="btn btn-secondary btn-circle" (click)="configAnalyzer()"><i class="pi pi-cog"></i></button>
     </div>
 </mat-card>
 <p-confirmDialog [style]="{width: '40vw'}"></p-confirmDialog>

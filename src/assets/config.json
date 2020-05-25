@@ -76,5 +76,9 @@
     "protocolFiles": [
         { "name": "astm.json" },
         { "name": "hl7v2.json" }
-    ]
+    ],
+    "api": {
+        "host": "localhost",
+        "port": 3000
+    }
 }

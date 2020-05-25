@@ -1,74 +1,121 @@
 <div class="row" style="margin-top: 30px;">
     <div class="col-4">
-        <div class="configInputs">
-            <form #config="ngForm">
-                <div class="ui-inputgroup">
+        <form #configForm="ngForm" *ngIf="analyzerConfig">
+            <div class="configInputs">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('name')">
                     <span class="ui-inputgroup-addon">Name</span>
-                    <input type="text" name="name" id="name" ngModel class="input" pInputText>
+                    <input type="text" name="name" id="name" [ngModel]="analyzerConfig.name" class="input" pInputText disabled>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('lisName')">
+                    <span class="ui-inputgroup-addon">LisName</span>
+                    <input type="text" name="lisName" id="lisName" [ngModel]="analyzerConfig.lisName" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('listenerClass')">
                     <span class="ui-inputgroup-addon">Listener Class</span>
-                    <p-dropdown name="listenerClass" id="listenerClass" ngModel [options]="listenerClasses"></p-dropdown>
+                    <p-dropdown name="listenerClass" id="listenerClass" [ngModel]="analyzerConfig.listenerClass" [options]="listenerClasses"></p-dropdown>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('parserClass')">
                     <span class="ui-inputgroup-addon">Parser Class</span>
-                    <p-dropdown name="parserClass" id="parserClass" ngModel [options]="parserClasses"></p-dropdown>
+                    <p-dropdown name="parserClass" id="parserClass" [ngModel]="analyzerConfig.parserClass" [options]="parserClasses"></p-dropdown>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('devmode')">
+                    <span class="ui-inputgroup-addon">Dev Mode</span>
+                    <p-dropdown name="devmode" id="devmode" [ngModel]="analyzerConfig.devmode" [options]="devmode"></p-dropdown>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('datePosition')">
+                    <span class="ui-inputgroup-addon">Date Position</span>
+                    <input type="text" name="datePosition" id="datePosition" [ngModel]="analyzerConfig.datePosition" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('patientPosition')">
+                    <span class="ui-inputgroup-addon">Patient Position</span>
+                    <input type="text" name="patientPosition" id="patientPosition" [ngModel]="analyzerConfig.patientPosition" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('pathToDirectory')">
+                    <span class="ui-inputgroup-addon">Directory Path</span>
+                    <input type="text" name="pathToDirectory" id="pathToDirectory" [ngModel]="analyzerConfig.pathToDirectory" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('dataPacket')">
+                    <span class="ui-inputgroup-addon">Data Packet</span>
+                    <input type="text" name="dataPacket" id="dataPacket" [ngModel]="analyzerConfig.dataPacket" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('host')">
+                    <span class="ui-inputgroup-addon">Host</span>
+                    <input type="text" name="host" id="host" [ngModel]="analyzerConfig.host" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('port')">
                     <span class="ui-inputgroup-addon">Port</span>
-                    <input type="text" name="port" id="port" ngModel class="input" pInputText>
+                    <input type="text" name="port" id="port" [ngModel]="analyzerConfig.port" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('serialPort')">
+                    <span class="ui-inputgroup-addon">Serial Port</span>
+                    <input type="text" name="serialPort" id="serialPort" [ngModel]="analyzerConfig.serialPort" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('baudRate')">
                     <span class="ui-inputgroup-addon">Baud Rate</span>
-                    <input type="text" name="baudRate" id="baudRate" ngModel class="input" pInputText>
+                    <input type="text" name="baudRate" id="baudRate" [ngModel]="analyzerConfig.baudRate" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('recordTypePosition')">
                     <span class="ui-inputgroup-addon smallFont">Record Type Position</span>
-                    <input type="text" name="recordTypePosition" id="recordTypePosition" ngModel class="input" pInputText>
+                    <input type="text" name="recordTypePosition" id="recordTypePosition" [ngModel]="analyzerConfig.recordTypePosition" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('recordTypeLength')">
                     <span class="ui-inputgroup-addon smallFont">Record Type Length</span>
-                    <input type="text" name="recordTypeLength" id="recordTypeLength" ngModel class="input" pInputText>
+                    <input type="text" name="recordTypeLength" id="recordTypeLength" [ngModel]="analyzerConfig.recordTypeLength" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('lineDelimiter')">
+                    <span class="ui-inputgroup-addon">Line Delimiter</span>
+                    <input type="text" name="lineDelimiter" id="lineDelimiter" [ngModel]="analyzerConfig.lineDelimiter" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('separator')">
                     <span class="ui-inputgroup-addon">Separator</span>
-                    <input type="text" name="separator" id="separator" ngModel class="input" pInputText>
+                    <input type="text" name="separator" id="separator" [ngModel]="analyzerConfig.separator" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('messageStart')">
                     <span class="ui-inputgroup-addon">Message Start</span>
-                    <input type="text" name="messageStart" id="messageStart" ngModel class="input" pInputText>
+                    <input type="text" name="messageStart" id="messageStart" [ngModel]="analyzerConfig.messageStart" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('messageEnd')">
                     <span class="ui-inputgroup-addon">Message End</span>
-                    <input type="text" name="messageEnd" id="messageEnd" ngModel class="input" pInputText>
+                    <input type="text" name="messageEnd" id="messageEnd" [ngModel]="analyzerConfig.messageEnd" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('startFrame')">
                     <span class="ui-inputgroup-addon">Start Frame</span>
-                    <input type="text" name="startFrame" id="startFrame" ngModel class="input" pInputText>
+                    <input type="text" name="startFrame" id="startFrame" [ngModel]="analyzerConfig.startFrame" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('endFrame')">
                     <span class="ui-inputgroup-addon">End Frame</span>
-                    <input type="text" name="endFrame" id="endFrame" ngModel class="input" pInputText>
+                    <input type="text" name="endFrame" id="endFrame" [ngModel]="analyzerConfig.endFrame" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('messageAcknowledged')">
                     <span class="ui-inputgroup-addon">Message ACK</span>
-                    <input type="text" name="messageACK" id="messageACK" ngModel class="input" pInputText>
+                    <input type="text" name="messageAcknowledged" id="messageAcknowledged" [ngModel]="analyzerConfig.messageAcknowledged" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('messageNotAcknowledged')">
                     <span class="ui-inputgroup-addon">Message Not ACK</span>
-                    <input type="text" name="messageNotACK" id="messageNotACK" ngModel class="input" pInputText>
+                    <input type="text" name="messageNotAcknowledged" id="messageNotAcknowledged" [ngModel]="analyzerConfig.messageNotAcknowledged" class="input" pInputText>
                 </div>
-                <div class="ui-inputgroup">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('depCod')">
+                    <span class="ui-inputgroup-addon">DepCod</span>
+                    <input type="text" name="depCod" id="depCod" [ngModel]="analyzerConfig.depCod" class="input" pInputText>
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.hasOwnProperty('protocol')">
                     <span class="ui-inputgroup-addon">Protocol File</span>
-                    <p-dropdown appendTo="body" name="protocolFile" id="protocolFile" ngModel [options]="protocolFiles"></p-dropdown>
+                    <p-dropdown appendTo="body" name="protocol" id="protocol" [ngModel]="analyzerConfig.protocol.fileName" [options]="protocolFiles"></p-dropdown>
                 </div>
-            </form>
-        </div>
+            </div>
+            <hr>
+            <div class="text-center mt-2">            
+                <button class="btn btn-primary" (click)="save(configForm.value)">Save config</button>
+            </div>
+        </form>
     </div>
     <div class="col-8">
-        <checksum (checksum)="saveChecksum($event)"></checksum>
-        <query-params (queryParams)="saveQueryParams($event)"></query-params>
-        <map-codes (mapCodes)="saveMapCodes($event)"></map-codes>
-        <button class="btn btn-primary" (click)="save(config.value)">Save config</button>
+        <server [configServer]="analyzerConfig.server" (server)="saveServer($event)" *ngIf="analyzerConfig && analyzerConfig.hasOwnProperty('server')"></server>
+        <paths [analyzerConfig]="analyzerConfig" (paths)="savePaths($event)" *ngIf="analyzerConfig && analyzerConfig.hasOwnProperty('paths')"></paths>
+        <checksum [analyzerConfig]="analyzerConfig" (checksum)="saveChecksum($event)" *ngIf="analyzerConfig && analyzerConfig.hasOwnProperty('checksum')"></checksum>
+        <query-params [configParameters]="analyzerConfig.query.params" (queryParams)="saveQueryParams($event)" *ngIf="analyzerConfig && analyzerConfig.hasOwnProperty('query')"></query-params>
+        <map-codes [configCodes]="analyzerConfig.map.code" (mapCodes)="saveMapCodes($event)" *ngIf="analyzerConfig && analyzerConfig.hasOwnProperty('map')"></map-codes>
+        <interpretation-codes [configInterpretationCodes]="analyzerConfig.map.interpretationCode" (interpretationCodes)="saveInterpretationCodes($event)" *ngIf="analyzerConfig && analyzerConfig.map && analyzerConfig.map.interpretationCode"></interpretation-codes>
     </div>
 </div>
+<p-confirmDialog [style]="{width: '40vw'}"></p-confirmDialog>

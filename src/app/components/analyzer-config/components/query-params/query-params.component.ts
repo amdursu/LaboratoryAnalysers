@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'query-params',
@@ -7,22 +7,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class QueryParamsComponent implements OnInit {
 
-  queryParameters = [
-    {
-      name: "performer",
-      field: 5,
-      component: 1,
-      frame: "H"
-    },
-    {
-        name: "subject",
-        field: 3,
-        component: 1,
-        frame: "Q"
-    }
-  ]
-
+  @Input('configParameters') configParameters;
   @Output('queryParams') queryParams = new EventEmitter<object>();
+
+  edit: boolean[] = [];
+  name; field; component; frame;
+  editName = []; editField = []; editComponent = []; editFrame = [];
 
   constructor() { }
 
@@ -30,20 +20,42 @@ export class QueryParamsComponent implements OnInit {
   }
 
   addParam(name, field, component, frame){
-    this.queryParameters.push({name, field, component, frame});
+    this.configParameters.push({name, field, component, frame});
     this.queryParams.emit({
       query: {
-        params: this.queryParameters
+        params: this.configParameters
       }
     })
   }
 
-  deleteParam(param){
-    this.queryParameters.splice(this.queryParameters.indexOf(param), 1);
+  modifyParam(param, i){
+    this.editName[i] = param.name;
+    this.editField[i] = param.field;
+    this.editComponent[i] = param.component;
+    this.editFrame[i] = param.frame;
+    this.edit[i] = true;
+  }
+
+  saveParam(param, i){
+    let index = this.configParameters.indexOf(param);
+    this.configParameters[index] = { 
+      name: this.editName[i],
+      field: this.editField[i],
+      component: this.editComponent[i],
+      frame: this.editFrame[i]
+    };
+
+    this.edit[i] = false;
+
     this.queryParams.emit({
-      query: {
-        params: this.queryParameters
-      }
+      params: this.configParameters
+    })
+  }
+
+  deleteParam(param){
+    this.configParameters.splice(this.configParameters.indexOf(param), 1);
+    this.queryParams.emit({
+      params: this.configParameters
     })
   }
 

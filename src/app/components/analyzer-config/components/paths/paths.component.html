@@ -1,0 +1,28 @@
+<p-accordion>
+    <p-accordionTab header="Paths">
+        <form #pathsForm="ngForm">
+            <div class="inputs">
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.paths.tmp">
+                    <span class="ui-inputgroup-addon">Tmp</span>
+                    <input type="text" name="tmp" id="tmp" [(ngModel)]="tmp" class="input" pInputText (keyup)="sendPaths(pathsForm.value)">
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.paths.completed">
+                    <span class="ui-inputgroup-addon">Completed</span>
+                    <input type="text" name="completed" id="completed" [(ngModel)]="completed" class="input" pInputText (keyup)="sendPaths(pathsForm.value)">
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.paths.results">
+                    <span class="ui-inputgroup-addon">Results</span>
+                    <input type="text" name="results" id="results" [(ngModel)]="results" class="input" pInputText (keyup)="sendPaths(pathsForm.value)">
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.paths.query">
+                    <span class="ui-inputgroup-addon">Query</span>
+                    <input type="text" name="query" id="query" [(ngModel)]="query" class="input" pInputText (keyup)="sendPaths(pathsForm.value)">
+                </div>
+                <div class="ui-inputgroup" *ngIf="analyzerConfig.paths.logs">
+                    <span class="ui-inputgroup-addon">Logs</span>
+                    <input type="text" name="logs" id="logs" [(ngModel)]="logs" class="input" pInputText (keyup)="sendPaths(pathsForm.value)">
+                </div>
+            </div>
+        </form>
+    </p-accordionTab>
+</p-accordion>

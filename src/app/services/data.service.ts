@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { saveAs } from 'file-saver';
+import * as config from '../../assets/config.json';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +40,19 @@ export class DataService {
 
   removeAnalyzer(body){
     return this.http.post('/api/removeAnalyzer', body, this.options);
+  }
+
+  modifyConfig(body){
+    return this.http.post('/api/modifyConfig', body, this.options);
+  }
+
+  downloadOutputLogFile(analyzerName){
+    let url = `http://${config.api.host}:${config.api.port}/api/downloadOutputLog?analyzerName=${analyzerName}`;
+    window.open(url);
+  }
+
+  downloadErrorLogFile(analyzerName){
+    let url = `http://${config.api.host}:${config.api.port}/api/downloadErrorLog?analyzerName=${analyzerName}`;
+    window.open(url);
   }
 }

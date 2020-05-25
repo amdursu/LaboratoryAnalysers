@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -27,6 +28,10 @@ import { QueryParamsComponent } from './components/analyzer-config/components/qu
 import { MapCodesComponent } from './components/analyzer-config/components/map-codes/map-codes.component';
 import { CodeMapEntryComponent } from './components/analyzer-config/components/map-codes/components/code-map-entry/code-map-entry.component';
 import { ChecksumComponent } from './components/analyzer-config/components/checksum/checksum.component';
+import { DownloadLogFilesComponent } from './components/analyzer-card/components/download-log-files/download-log-files.component';
+import { InterpretationCodesComponent } from './components/analyzer-config/components/interpretation-codes/interpretation-codes.component';
+import { ServerComponent } from './components/analyzer-config/components/server/server.component';
+import { PathsComponent } from './components/analyzer-config/components/paths/paths.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -44,7 +49,11 @@ const routes: Routes = [
     QueryParamsComponent,
     MapCodesComponent,
     CodeMapEntryComponent,
-    ChecksumComponent
+    ChecksumComponent,
+    DownloadLogFilesComponent,
+    InterpretationCodesComponent,
+    ServerComponent,
+    PathsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,10 +71,11 @@ const routes: Routes = [
     MatDialogModule,
     AutoCompleteModule,
     HttpClientModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [CodeMapEntryComponent]
+  entryComponents: [CodeMapEntryComponent, DownloadLogFilesComponent]
 })
 export class AppModule { }

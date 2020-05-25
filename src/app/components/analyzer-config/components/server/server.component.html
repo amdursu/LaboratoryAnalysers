@@ -1,0 +1,16 @@
+<p-accordion>
+    <p-accordionTab header="Server">
+        <form #serverForm="ngForm">
+            <div class="inputs">
+                <div class="ui-inputgroup" *ngIf="configServer.host">
+                    <span class="ui-inputgroup-addon">Host</span>
+                    <input type="text" name="serverHost" id="serverHost" [(ngModel)]="host" class="input" pInputText (keyup)="sendServer(serverForm.value)">
+                </div>
+                <div class="ui-inputgroup" *ngIf="configServer.port">
+                    <span class="ui-inputgroup-addon">Port</span>
+                    <input type="text" name="serverPort" id="serverPort" [(ngModel)]="port" class="input" pInputText (keyup)="sendServer(serverForm.value)">
+                </div>
+            </div>
+        </form>
+    </p-accordionTab>
+</p-accordion>

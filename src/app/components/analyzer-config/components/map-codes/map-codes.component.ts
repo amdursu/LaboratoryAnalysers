@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CodeMapEntryComponent } from './components/code-map-entry/code-map-entry.component';
 
@@ -9,83 +9,7 @@ import { CodeMapEntryComponent } from './components/code-map-entry/code-map-entr
 })
 export class MapCodesComponent implements OnInit {
 
-  codes = [
-    {
-        code: "300",
-        display: "Glucose"
-    },
-    {
-        code: "301",
-        display: "Total Protein"
-    },
-    {
-        code: "302",
-        display: "Uric Acid"
-    },
-    {
-        code: "303",
-        display: "Albumin"
-    },
-    {
-        code: "304",
-        display: "Triglycerides"
-    },
-    {
-        code: "305",
-        display: "Cholesterol"
-    },
-    {
-        code: "306",
-        display: "Amylase"
-    },
-    
-    {
-        lisCode: "754",
-        code: "754",
-        system: "/anaCod",
-        codComunicatie: {
-            code: "1",
-            system: "/codComunicatie"
-        },
-        anaApCod: {
-            code: "_",
-            system: "/AnaApCod"
-        },
-        parameters: [
-            "612",
-            "613"
-        ]
-    },
-    {
-        lisCode: "612",
-        code: "612",
-        system: "/anaCod",
-        display: "VSH 1h",
-        codComunicatie: {
-            code: "1",
-            system: "/codComunicatie"
-        },
-        anaApCod: {
-            code: "_",
-            system: "/AnaApCod"
-        }
-    },
-    {
-        lisCode: "613",
-        code: "613",
-        system: "/anaCod",
-        display: "VSH 2h",
-        codComunicatie: {
-            code: "2",
-            system: "/codComunicatie"
-        },
-        anaApCod: {
-            code: "_",
-            system: "/AnaApCod"
-        }
-    },
-  ];
-
+  @Input('configCodes') configCodes;
   @Output('mapCodes') mapCodes = new EventEmitter<object>();
 
   addEntryButtonVisible: boolean = false;
@@ -101,13 +25,13 @@ export class MapCodesComponent implements OnInit {
         height: '600px',
         data: {
             action: 'Add',
-            codes: this.codes
+            codes: this.configCodes
         }
     });
 
     addCodeDialog.afterClosed().subscribe(() => {
         if(addCodeDialog.componentInstance.save){
-            this.codes.push(addCodeDialog.componentInstance.codeMap);
+            this.configCodes.push(addCodeDialog.componentInstance.codeMap);
             this.mapCodes.emit(this.getCodes());
         }
             
@@ -120,30 +44,26 @@ export class MapCodesComponent implements OnInit {
         height: '600px',
         data: {
             code,
-            codes: this.codes,
+            codes: this.configCodes,
             action: 'Edit'
         }
     });
 
     editCodeDialog.afterClosed().subscribe(() => {
         if(editCodeDialog.componentInstance.save){
-            this.codes[this.codes.indexOf(code)] = editCodeDialog.componentInstance.codeMap;
+            this.configCodes[this.configCodes.indexOf(code)] = editCodeDialog.componentInstance.codeMap;
             this.mapCodes.emit(this.getCodes())
         }
     })
   }
 
   deleteMapCode(code){
-      this.codes.splice(this.codes.indexOf(code), 1);
+      this.configCodes.splice(this.configCodes.indexOf(code), 1);
       this.mapCodes.emit(this.getCodes());
   }
 
   getCodes(){
-      return {
-          map: {
-              code: this.codes
-          }
-      }
+      return this.configCodes;
   }
 
   onTabOpen(){

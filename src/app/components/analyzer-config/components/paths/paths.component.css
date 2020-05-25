@@ -9,10 +9,6 @@ span.ui-inputgroup-addon{
     margin-left: auto;
 }
 
-#checkerFn, #computerFn{
-    margin-right: auto !important;
-}
-
 .inputs{
     width: 50%;
     margin: 0 auto;

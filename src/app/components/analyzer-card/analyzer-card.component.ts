@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { ConfirmationService } from 'primeng/api';
+import { MatDialog } from '@angular/material/dialog';
+import { DownloadLogFilesComponent } from './components/download-log-files/download-log-files.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'analyzer-card',
@@ -15,7 +18,7 @@ export class AnalyzerCardComponent implements OnInit {
   @Output('removedAnalyzer') removedAnalyzer = new EventEmitter();
   
 
-  constructor(private data: DataService, private confirmationService: ConfirmationService) { }
+  constructor(private data: DataService, private confirmationService: ConfirmationService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
   }
@@ -39,6 +42,12 @@ export class AnalyzerCardComponent implements OnInit {
     }
   }
 
+  configAnalyzer(){
+    this.router.navigate(['/config'], {
+      state: {config: this.analyzer.config}
+    });
+  }
+
   removeAnalyzer(){
     this.confirmationService.confirm({
       message: 'Are you sure that you want to remove this analyzer?',
@@ -50,5 +59,15 @@ export class AnalyzerCardComponent implements OnInit {
         });
       }
     });
+  }
+
+  openDownloadDialog(){
+    let openDialog = this.dialog.open(DownloadLogFilesComponent, {
+      width: '550px',
+      height: '270px',
+      data: {
+        analyzerName: this.analyzer.name
+      }
+    })
   }
 }
